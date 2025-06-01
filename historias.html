@@ -3,7 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Historias - Futbol Code FC</title>
+  <meta name="description" content="Revive los momentos más épicos del fútbol mundial con Futbol Code FC. Historias inolvidables que marcaron una era.">
+  <title>Historias Inolvidables - Futbol Code FC</title>
   <style>
     :root {
       --azul: #002147;
@@ -186,13 +187,13 @@
 </head>
 <body>
   <header>
-    <img src="logo.png" alt="Logo Futbol Code FC" />
+    <img src="Publicaciones/logo.png" alt="Logo de Futbol Code FC" loading="lazy" />
     <h1>Futbol Code FC</h1>
     <p>Revive los momentos más épicos del fútbol mundial</p>
   </header>
 
-  <nav>
-    <a href="index_v1.html#inicio">Inicio</a>
+  <nav role="navigation" aria-label="Navegación principal">
+    <a href="index.html#inicio">Inicio</a>
     <a href="noticias.html#noticias">Noticias</a>
     <a href="historias.html#historias">Historias</a>
     <a href="contacto.html#contacto">Contacto</a>
@@ -202,36 +203,40 @@
     <h1>Historias Inolvidables</h1>
 
     <div class="search-bar">
-      <input type="text" id="busqueda" placeholder="Buscar una historia..." oninput="filtrarHistorias()" />
+      <input type="text" id="busqueda" placeholder="Buscar una historia..." oninput="filtrarHistorias()" aria-label="Buscar historia" />
     </div>
 
-    <div class="historias-grid" id="historiasContainer">
-      <div class="historia-card">
-        <img src="maracanazo.jpg" alt="Maracanazo" />
+    <section class="historias-grid" id="historiasContainer">
+      <article class="historia-card">
+        <img src="Publicaciones/maracanazo.jpg" alt="Uruguay vence a Brasil en 1950" loading="lazy" />
         <div class="historia-content">
           <h3>El Maracanazo</h3>
           <p>Uruguay venció a Brasil en la final de 1950 ante más de 200 mil espectadores.</p>
           <a href="historias/maracanazo.html" class="btn">Leer más</a>
         </div>
-      </div>
+      </article>
 
-      <div class="historia-card">
-        <img src="pele1958.jpeg" alt="Pelé 1958" />
+      <article class="historia-card">
+        <img src="Publicaciones/pele1958.jpeg" alt="Pelé brillando en 1958" loading="lazy" />
         <div class="historia-content">
           <h3>Pelé en 1958</h3>
           <p>Con solo 17 años, Pelé maravilló al mundo en el Mundial de Suecia.</p>
           <a href="historias/pele1958.html" class="btn">Leer más</a>
         </div>
-      </div>
+      </article>
 
-      <div class="historia-card">
-        <img src="iniesta2010.jpeg" alt="Gol de Iniesta" />
+      <article class="historia-card">
+        <img src="Publicaciones/iniesta2010.jpeg" alt="Gol de Iniesta en la final de 2010" loading="lazy" />
         <div class="historia-content">
           <h3>España 2010</h3>
           <p>El gol de Iniesta que le dio a España su primera Copa del Mundo.</p>
           <a href="historias/iniesta2010.html" class="btn">Leer más</a>
         </div>
-      </div>
+      </article>
+    </section>
+
+    <div style="text-align: left; margin-top: 1.5rem;">
+      <a href="#noticias" class="btn">Volver arriba</a>
     </div>
   </main>
 
@@ -239,29 +244,29 @@
     &copy; 2025 Futbol Code FC. Todos los derechos reservados.
   </footer>
 
-  <div class="social-floating">
+  <div class="social-floating" aria-label="Redes sociales">
     <a href="https://www.instagram.com/futbol_code_fc?igsh=cTNnZ2dpMHczMHhq&utm_source=qr" target="_blank" aria-label="Instagram">
-      <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/instagram.svg" alt="Instagram" />
+      <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/instagram.svg" alt="Icono Instagram" />
     </a>
     <a href="https://www.facebook.com/share/1AfDGYKHp3/?mibextid=wwXIfr" target="_blank" aria-label="Facebook">
-      <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/facebook.svg" alt="Facebook" />
+      <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/facebook.svg" alt="Icono Facebook" />
     </a>
     <a href="https://youtube.com/@futbol_code-fc?si=OWh3PFdQX2sU8dYd" target="_blank" aria-label="YouTube">
-      <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/youtube.svg" alt="YouTube" />
+      <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/youtube.svg" alt="Icono YouTube" />
     </a>
   </div>
 
   <script>
     function filtrarHistorias() {
-      const input = document.getElementById('busqueda').value.toLowerCase();
-      const cards = document.querySelectorAll('.historia-card');
+      const input = document.getElementById('busqueda');
+      const filtro = input.value.toLowerCase();
+      const historias = document.querySelectorAll('.historia-card');
 
-      cards.forEach(card => {
-        const texto = card.textContent.toLowerCase();
-        card.style.display = texto.includes(input) ? 'flex' : 'none';
+      historias.forEach(card => {
+        const texto = card.innerText.toLowerCase();
+        card.style.display = texto.includes(filtro) ? 'flex' : 'none';
       });
     }
   </script>
-
 </body>
 </html>
